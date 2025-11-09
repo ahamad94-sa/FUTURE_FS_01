@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="color-1.css"
+      class="alternate-style"
+      title="color-1"
+      disabled
+    />
+    <link
+      rel="stylesheet"
+      href="color-2.css"
+      class="alternate-style"
+      title="color-2"
+      disabled
+    />
+    <link
+      rel="stylesheet"
+      href="color-3.css"
+      class="alternate-style"
+      title="color-3"
+      disabled
+    />
+    <link
+      rel="stylesheet"
+      href="color-4.css"
+      class="alternate-style"
+      title="color-4"
+    />
+    <link
+      rel="stylesheet"
+      href="color-5.css"
+      class="alternate-style"
+      title="color-5"
+      disabled
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Clicker+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+      :root {
+        --bg-black900: #f2f2fc;
+        --bg-black100: #fdf9ff;
+        --bg-black50: #e8dfec;
+        --text-black900: #302e4d;
+        --text-black700: #504e70;
+
+        --skin-color: #ec1839;
+      }
+
+      body.dark {
+        --bg-black900: #151515;
+        --bg-black100: #222222;
+        --bg-black50: #393939;
+        --text-black900: #ffffff;
+        --text-black700: #e9e9e9;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        outline: none;
+        text-decoration: none;
+        box-sizing: border-box;
+      }
+      ::before,
+      ::after {
+        box-sizing: border-box;
+      }
+      ul {
+        list-style: none;
+      }
+      body {
+        line-height: 1.5;
+        font-size: 16px;
+        font-family: "Poppins", sans-serif;
+      }
+      .section {
+        background: var(--bg-black900);
+        min-height: 100vh;
+        display: block;
+        opacity: 1;
+        padding: 0 30px;
+        position: fixed;
+        left: 270px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        transition: all 0.3s ease;
+      }
+      .section.back-section {
+        z-index: 1;
+      }
+      .section.active {
+        z-index: 2;
+        opacity: 1;
+        animation: slideSection 1s ease;
+      }
+      @keyframes slideSection {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(0%);
+        }
+      }
+      .hidden {
+        display: none !important;
+      }
+      /*.main-content { padding-left: 270px; }*/
+      .padd-15 {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      .container {
+        max-width: 1100px;
+        width: 100%;
+        margin: auto;
+      }
+      .section .container {
+        padding-top: 60px;
+        padding-bottom: 70px;
+      }
+      .section-title {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 60px;
+      }
+      .section-title h2 {
+        font-size: 40px;
+        color: var(--text-black900);
+        font-weight: 700;
+        position: relative;
+      }
+      .section-title h2::before {
+        content: "";
+        height: 4px;
+        width: 50px;
+        background-color: var(--skin-color);
+        position: absolute;
+        top: 100%;
+        left: 0;
+      }
+      .section-title h2::after {
+        content: "";
+        height: 4px;
+        width: 25px;
+        background-color: var(--skin-color);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-top: 8px;
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -15px;
+        margin-right: -15px;
+        position: relative;
+      }
+      .btn {
+        font-size: 16px;
+        font-weight: 500;
+        padding: 12px 35px;
+        color: white;
+        border-radius: 40px;
+        display: inline-block;
+        border: none;
+        white-space: nowrap;
+        background: var(--skin-color);
+        transition: all 0.3s ease;
+      }
+      .btn:hover {
+        transform: scale(1.05);
+      }
+      .shadow-dark {
+        box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+      }
+
+      /* ASIDE */
+
+      .aside {
+        width: 270px;
+        background: var(--bg-black100);
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 10;
+        height: 100%;
+        padding: 30px;
+        border-right: 1px solid var(--bg-black50);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+      .aside .logo {
+        position: absolute;
+        top: 50px;
+        font-size: 30px;
+        text-transform: capitalize;
+      }
+      .aside .logo a {
+        color: var(--text-black900);
+        font-weight: 700;
+        padding: 15px 20px;
+        font-size: 30px;
+        letter-spacing: 5px;
+        position: relative;
+      }
+      .aside .logo a::before {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-bottom: 5px solid var(--skin-color);
+        border-left: 5px solid var(--skin-color);
+        bottom: 0;
+        left: 0;
+      }
+      .aside .logo a::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-top: 5px solid var(--skin-color);
+        border-right: 5px solid var(--skin-color);
+        top: 0;
+        right: 0;
+      }
+      .aside .logo a span {
+        font-family: "Clicker Script", cursive;
+        font-size: 40px;
+      }
+      .aside .nav {
+        margin-top: 50px;
+      }
+      .aside .nav li {
+        margin-bottom: 20px;
+        display: block;
+      }
+      .aside .nav li a {
+        font-size: 16px;
+        font-weight: 600;
+        display: block;
+        color: var(--text-black900);
+        padding: 5px 15px;
+        border-bottom: 1px solid var(--bg-black50);
+      }
+      .aside .nav li a.active {
+        color: var(--skin-color);
+      }
+      .aside .nav li a i {
+        margin-right: 15px;
+      }
+      .aside .nav-toggler {
+        height: 40px;
+        width: 45px;
+        border: 1px solid var(--bg-black50);
+        cursor: pointer;
+        position: fixed;
+        left: 300px;
+        top: 20px;
+        border-radius: 5px;
+        background: var(--bg-black100);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+      .aside .nav-toggler.open span {
+        background-color: transparent;
+      }
+      .aside .nav-toggler span {
+        height: 2px;
+        width: 18px;
+        background: var(--skin-color);
+        display: inline-block;
+        position: relative;
+      }
+      .aside .nav-toggler span::before {
+        content: "";
+        height: 2px;
+        width: 18px;
+        background: var(--skin-color);
+        position: absolute;
+        top: -6px;
+        left: 0;
+      }
+      .aside .nav-toggler.open span::before {
+        transform: rotate(45deg);
+        top: 0;
+      }
+      .aside .nav-toggler span::after {
+        content: "";
+        height: 2px;
+        width: 18px;
+        background: var(--skin-color);
+        position: absolute;
+        top: 6px;
+        left: 0;
+      }
+      .aside .nav-toggler.open span::after {
+        transform: rotate(-45deg);
+        top: 0;
+      }
+
+      /* HOME */
+
+      .home {
+        min-height: 100vh;
+        display: flex;
+        color: var(--text-black900);
+      }
+      .home .home-info {
+        flex: 0 0 60%;
+        max-width: 60%;
+      }
+      h3.hello {
+        font-size: 28px;
+        margin: 15px 0;
+      }
+      h3.hello span {
+        font-family: "Clicker Script", cursive;
+        font-size: 30px;
+        font-weight: 700;
+        color: var(--skin-color);
+      }
+      h3.profession {
+        font-size: 30px;
+        margin: 15px 0;
+      }
+      .typing {
+        color: var(--skin-color);
+      }
+      .home-info p {
+        margin-bottom: 70px;
+        font-size: 20px;
+        color: var(--text-black700);
+      }
+      .home .home-img {
+        flex: 0 0 40%;
+        max-width: 40%;
+        text-align: center;
+        position: relative;
+      }
+      .home-img::after {
+        content: "";
+        position: absolute;
+        height: 80px;
+        width: 80px;
+        border-bottom: 10px solid var(--skin-color);
+        border-right: 10px solid var(--skin-color);
+        right: 20px;
+        bottom: -40px;
+      }
+      .home-img::before {
+        content: "";
+        position: absolute;
+        height: 80px;
+        width: 80px;
+        border-top: 10px solid var(--skin-color);
+        border-left: 10px solid var(--skin-color);
+        left: -20px;
+        top: -40px;
+      }
+      .home .home-img img {
+        height: 400px;
+        margin: auto;
+        border-radius: 4px;
+      }
+
+      /* ABOUT */
+
+      .about .about-content {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+      .about .about-content .about-text {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+      .about .about-content .about-text h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        font-weight: 700;
+        color: var(--text-black900);
+      }
+      .about .about-content .about-text h3 span {
+        color: var(--skin-color);
+      }
+      .about .about-content .about-text p {
+        font-size: 16px;
+        line-height: 25px;
+        color: var(--text-black700);
+        text-align: justify;
+      }
+      .about .about-content .personal-info {
+        flex: 0 0 60%;
+        max-width: 60%;
+        margin-top: 40px;
+      }
+      .about .about-content .personal-info .info-item {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+      .about .about-content .personal-info .info-item p {
+        font-weight: 600;
+        padding: 10px 0;
+        font-size: 16px;
+        color: var(--text-black900);
+        border-bottom: 1px solid var(--bg-black50);
+      }
+      .about .about-content .personal-info .info-item p span {
+        font-weight: 400;
+        color: var(--text-black700);
+        margin-left: 4px;
+        display: inline-block;
+      }
+      .about .about-content .personal-info .buttons {
+        margin-top: 30px;
+      }
+      .about .about-content .personal-info .buttons .btn {
+        margin-top: 10px;
+      }
+      .about .about-content .skills {
+        flex: 0 0 40%;
+        max-width: 40%;
+        margin-top: 40px;
+      }
+      .about .about-content .skills .skill-item {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 25px;
+      }
+      .about .about-content .skills .skill-item h5 {
+        line-height: 40px;
+        font-weight: 600;
+        font-size: 16px;
+        color: var(--text-black900);
+        text-transform: capitalize;
+      }
+      .about .about-content .skills .skill-item .skill-percent {
+        position: absolute;
+        right: 0;
+        color: var(--text-black900);
+        top: -40px;
+        font-weight: 400;
+        line-height: 40px;
+      }
+      .about .about-content .skills .skill-item .progress {
+        background-color: var(--bg-black50);
+        height: 7px;
+        border-radius: 4px;
+        width: 100%;
+        position: relative;
+      }
+      .about .about-content .skills .skill-item .progress .progress-in {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        border-radius: 4px;
+        background-color: var(--skin-color);
+      }
+      .about .about-content .education,
+      .about .about-content .experience {
+        flex: 0 0 50%;
+        max-width: 50%;
+        margin-top: 30px;
+      }
+      .about .about-content h3.title {
+        font-size: 24px;
+        margin-bottom: 30px;
+        font-weight: 700;
+        color: var(--text-black900);
+      }
+      .about .about-content .timeline-box {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+      .about .about-content .timeline {
+        background-color: var(--bg-black100);
+        padding: 30px 15px;
+        border: 1px solid var(--bg-black50);
+        border-radius: 10px;
+        width: 100%;
+        position: relative;
+      }
+      .about .about-content .timeline .timeline-item {
+        position: relative;
+        padding-left: 37px;
+        padding-bottom: 50px;
+      }
+      .about .about-content .timeline .timeline-item:last-child {
+        padding-bottom: 0;
+      }
+      .about .about-content .timeline .timeline-item::before {
+        content: "";
+        width: 1px;
+        position: absolute;
+        height: 100%;
+        left: 7px;
+        top: 0;
+        background-color: var(--skin-color);
+      }
+      .about .about-content .timeline .circle-dot {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        background-color: var(--skin-color);
+      }
+      .about .about-content .timeline .timeline-date {
+        font-weight: 400;
+        font-size: 14px;
+        margin-bottom: 12px;
+        color: var(--text-black700);
+      }
+      .about .about-content .timeline .timeline-date .fa {
+        margin-right: 5px;
+      }
+      .about .about-content .timeline .timeline-title {
+        font-weight: 700;
+        font-size: 18px;
+        margin-bottom: 15px;
+        text-transform: capitalize;
+        color: var(--text-black900);
+      }
+      .about .about-content .timeline .timeline-text {
+        line-height: 25px;
+        font-size: 16px;
+        text-align: justify;
+        color: var(--text-black700);
+      }
+
+      /* SERVICE */
+
+      .service .container {
+        padding-bottom: 40px;
+      }
+      .service .service-item {
+        margin-bottom: 30px;
+        flex: 0 0 33.33%;
+        max-width: 33.33%;
+      }
+      .service .service-item .service-item-inner {
+        background-color: var(--bg-black100);
+        border: var(--bg-black50);
+        border-radius: 10px;
+        padding: 30px 15px;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+      .service .service-item .service-item-inner:hover {
+        box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+      }
+      .service .service-item .service-item-inner .icon {
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto 30px;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+      .service .service-item .service-item-inner .icon .fa {
+        font-size: 40px;
+        line-height: 60px;
+        color: var(--skin-color);
+        transition: all 0.3s ease;
+      }
+      .service .service-item .service-item-inner:hover .icon {
+        background: var(--skin-color);
+      }
+      .service .service-item .service-item-inner:hover .icon .fa {
+        font-size: 25px;
+        color: #fff;
+      }
+      .service .service-item .service-item-inner h4 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: var(--text-black900);
+        font-weight: 700;
+        text-transform: capitalize;
+      }
+      .service .service-item .service-item-inner p {
+        font-size: 16px;
+        color: var(--text-black700);
+        line-height: 25px;
+      }
+
+      /* PORTFOLIO */
+
+      .portfolio .container {
+        padding-bottom: 40px;
+      }
+      .portfolio .portfolio-heading {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 40px;
+      }
+      .portfolio .portfolio-heading h2 {
+        color: var(--text-black900);
+        font-weight: 500;
+      }
+      .portfolio .portfolio-item {
+        flex: 0 0 33.33%;
+        max-width: 33.33%;
+        margin-bottom: 30px;
+      }
+      .portfolio .portfolio-item-inner {
+        border: 6px solid var(--bg-black100);
+        border-radius: 10px;
+        overflow: hidden;
+        cursor: pointer;
+      }
+      .portfolio .portfolio-item-inner .portfolio-img img {
+        width: 100%;
+        display: block;
+      }
+
+      /* CONTACT */
+
+      .contact-title {
+        color: var(--skin-color);
+        text-align: center;
+        font-size: 25px;
+        margin-bottom: 20px;
+      }
+      .contact-subtitle {
+        color: var(--text-black900);
+        text-align: center;
+        font-size: 15px;
+        margin-bottom: 60px;
+      }
+      .contact .contact-info-item {
+        flex: 0 0 25%;
+        max-width: 25%;
+        text-align: center;
+        margin-bottom: 60px;
+      }
+      .contact .contact-info-item .icon {
+        display: inline-block;
+      }
+      .contact .contact-info-item .icon .fa {
+        font-size: 25px;
+        color: var(--skin-color);
+      }
+      .contact .contact-info-item h4 {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--text-black900);
+        text-transform: capitalize;
+        margin: 15px 0 5px;
+      }
+      .contact .contact-info-item p {
+        font-size: 16px;
+        line-height: 25px;
+        color: var(--text-black700);
+        font-weight: 400;
+      }
+      .contact .contact-form {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+      .contact .contact-form .col-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+      .contact .contact-form .col-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+      .contact .contact-form .form-item {
+        margin-bottom: 30px;
+      }
+      .contact .contact-form .form-item .form-control {
+        width: 100%;
+        height: 50px;
+        border-radius: 25px;
+        background: var(--bg-black100);
+        border: 1px solid var(--bg-black50);
+        padding: 10px 25px;
+        font-size: 16px;
+        color: var(--text-black700);
+        transition: all 0.3s ease;
+        font-family: "Poppins", sans-serif;
+      }
+      .contact .contact-form .form-item .form-control:focus {
+        box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+      }
+      .contact .contact-form .form-item textarea.form-control {
+        height: 140px;
+        font-family: "Poppins", sans-serif;
+      }
+      .contact .contact-form .btn {
+        height: 50px;
+        padding: 0 50px;
+        cursor: pointer;
+        font-family: "Poppins", sans-serif;
+      }
+
+      @media (max-width: 1199px) {
+        .aside {
+          left: -270px;
+        }
+        .aside.open {
+          left: 0;
+        }
+        .aside .nav-toggler {
+          display: flex;
+          left: 30px;
+        }
+        .aside .nav-toggler.open {
+          left: 300px;
+        }
+        .section {
+          left: 0;
+        }
+        .section.open {
+          left: 270px;
+        }
+        .section .container {
+          padding-top: 70px;
+        }
+
+        .home-img::before,
+        .home-img::after {
+          display: none;
+        }
+
+        .about .about-content .personal-info .info-item p span {
+          display: block;
+          margin-left: 0;
+        }
+      }
+
+      @media (max-width: 991px) {
+        .home .home-info {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+        .home .home-img {
+          display: none;
+        }
+
+        .about .about-content .skills,
+        .about .about-content .personal-info,
+        .about .about-content .experience,
+        .about .about-content .education {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+
+        .contact .contact-info-item,
+        .portfolio .portfolio-item,
+        .service .service-item {
+          flex: 0 0 50%;
+          max-width: 50%;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .portfolio .portfolio-item,
+        .service .service-item,
+        .contact .contact-form .col-6 {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+      }
+
+      @media (max-width: 460px) {
+        .contact .contact-info-item {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+      }
+
+      /* Style Switcher */
+
+      .style-switcher {
+        position: fixed;
+        right: 0;
+        top: 60px;
+        padding: 15px;
+        width: 200px;
+        border: 1px solid var(--bg-black50);
+        background: var(--bg-black100);
+        z-index: 101;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        transform: translateX(100%);
+      }
+      .style-switcher.open {
+        transform: translateX(-25px);
+      }
+      .style-switcher .s-icon {
+        position: absolute;
+        height: 40px;
+        width: 40px;
+        text-align: center;
+        font-size: 20px;
+        background: var(--bg-black100);
+        color: var(--text-black900);
+        right: 100%;
+        border: 1px solid var(--bg-black50);
+        margin-right: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-radius: 50%;
+      }
+      .style-switcher .s-icon i {
+        line-height: 40px;
+      }
+      .style-switcher .style-switcher-toggler {
+        top: 0;
+      }
+      .style-switcher .day-night {
+        top: 55px;
+      }
+      .style-switcher h4 {
+        margin: 0 0 10px;
+        color: var(--text-black700);
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: capitalize;
+      }
+      .style-switcher .colors {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      .style-switcher .colors span {
+        display: inline-block;
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+      }
+      .style-switcher .color-1 {
+        background: #ec1839;
+      }
+      .style-switcher .color-2 {
+        background: #fa5b0f;
+      }
+      .style-switcher .color-3 {
+        background: #37b182;
+      }
+      .style-switcher .color-4 {
+        background: #1854b4;
+      }
+      .style-switcher .color-5 {
+        background: #f021b2;
+      }
+
+      /* Create more 5 css files to enable Toggle style Switcher */
+
+      /*
+
+File Name
+color-1.css 
+:root {
+    --skin-color: #EC1839;
+}
+
+File Name
+color-2.css
+:root {
+    --skin-color: #F45B0F;
+}
+
+File Name
+color-3.css
+:root {
+    --skin-color: #37B182;
+}
+
+File Name 
+color-4.css
+:root {
+    --skin-color: #1854B4;
+}
+
+File Name
+color-5.css
+:root {
+    --skin-color: #F021B2;
+}
+
+*/
+    </style>
+  </head>
+  <body class="dark">
+    <div class="main-container">
+      <div class="aside">
+        <div class="logo">
+          <a href="#"><span>P</span>ortfolio</a>
+        </div>
+
+        <div class="nav-toggler">
+          <span></span>
+        </div>
+
+        <ul class="nav">
+          <li>
+            <a href="#home" class="active"><i class="fa fa-home"></i>Home</a>
+          </li>
+          <li>
+            <a href="#about"><i class="fa fa-user"></i>About</a>
+          </li>
+          <li>
+            <a href="#services"><i class="fa fa-list"></i>Services</a>
+          </li>
+          <li>
+            <a href="#portfolio"><i class="fa fa-briefcase"></i>Projects</a>
+          </li>
+          <li>
+            <a href="#contact"><i class="fa fa-comments"></i>Contact</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="main-content">
+        <section class="home section active" id="home">
+          <div class="container">
+            <div class="row">
+              <div class="home-info padd-15">
+                <h3 class="hello">
+                  Hello, my name is <span class="name">Leo Souza</span>
+                </h3>
+                <h3 class="profession">
+                  I'm a <span class="typing">Web Designer</span>
+                </h3>
+                <p>
+                  I'm a web designer with extensive experience for over 10
+                  years. My experience is to create website designs, graphic
+                  designs and much more...
+                </p>
+                <a href="#" class="btn">Download CV</a>
+              </div>
+
+              <div class="home-img padd-15">
+                <img
+                  src="https://i.postimg.cc/PJbckj4M/hero.jpg"
+                  alt="hero image"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="about section" id="about">
+          <div class="container">
+            <div class="row">
+              <div class="section-title padd-15">
+                <h2>About me</h2>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="about-content padd-15">
+                <div class="row">
+                  <div class="about-text padd-15">
+                    <h3>I'm Leo Souza and <span>Web Designer</span></h3>
+                    <p>
+                      As a web designer, I'm specialized in creating visually
+                      appealing websites that not only captivate visitors but
+                      also provide seamless navigation and functionality. I
+                      continuously seek inspiration from current design trends
+                      and am committed to honing my skills through ongoing
+                      learning and experimentation. My ultimate goal is to craft
+                      digital experiences that engage users and drive results
+                      for my clients
+                    </p>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="personal-info padd-15">
+                    <div class="row">
+                      <div class="info-item padd-15">
+                        <p>Birthday: <span>02 Nov 2000</span></p>
+                      </div>
+
+                      <div class="info-item padd-15">
+                        <p>Age: <span>24</span></p>
+                      </div>
+
+                      <div class="info-item padd-15">
+                        <p>Website: <span>www.domain.com</span></p>
+                      </div>
+
+                      <div class="info-item padd-15">
+                        <p>Email: <span>info@gmail.com</span></p>
+                      </div>
+
+                      <div class="info-item padd-15">
+                        <p>Degree: <span>CS</span></p>
+                      </div>
+
+                      <div class="info-item padd-15">
+                        <p>Phone: <span>+17 678 1999</span></p>
+                      </div>
+
+                      <div class="info-item padd-15">
+                        <p>City: <span>São Paulo</span></p>
+                      </div>
+
+                      <div class="info-item padd-15">
+                        <p>Freelance: <span>Available</span></p>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="buttons padd-15">
+                        <a
+                          href="#contact"
+                          class="btn hire-me"
+                          data-section-index="1"
+                          >Hire me!</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="skills padd-15">
+                    <div class="row">
+                      <div class="skill-item padd-15">
+                        <h5>CSS</h5>
+                        <div class="progress">
+                          <div class="progress-in" style="width: 76%"></div>
+                          <div class="skill-percent">76%</div>
+                        </div>
+                      </div>
+
+                      <div class="skill-item padd-15">
+                        <h5>JS</h5>
+                        <div class="progress">
+                          <div class="progress-in" style="width: 86%"></div>
+                          <div class="skill-percent">86%</div>
+                        </div>
+                      </div>
+
+                      <div class="skill-item padd-15">
+                        <h5>PHP</h5>
+                        <div class="progress">
+                          <div class="progress-in" style="width: 66%"></div>
+                          <div class="skill-percent">66%</div>
+                        </div>
+                      </div>
+
+                      <div class="skill-item padd-15">
+                        <h5>HTML</h5>
+                        <div class="progress">
+                          <div class="progress-in" style="width: 96%"></div>
+                          <div class="skill-percent">96%</div>
+                        </div>
+                      </div>
+
+                      <div class="skill-item padd-15">
+                        <h5>Bootstrap</h5>
+                        <div class="progress">
+                          <div class="progress-in" style="width: 76%"></div>
+                          <div class="skill-percent">76%</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="education padd-15">
+                    <h3 class="title">Education</h3>
+                    <div class="row">
+                      <div class="timeline-box padd-15">
+                        <div class="timeline shadow-dark">
+                          <div class="timeline-item">
+                            <div class="circle-dot"></div>
+                            <h3 class="timeline-date">
+                              <i class="fa fa-calendar"></i> 2013 - 2015
+                            </h3>
+                            <h4 class="timeline-title">
+                              Master in Computer Science
+                            </h4>
+                            <p class="timeline-text">
+                              I learnt a wide range of topics that are essential
+                              to understanding both the theory and practical
+                              aspects of computing. This involves programming
+                              fundamentals, computer architecture, operating
+                              systems, databases, software engineering, problem
+                              solving, collaboration and communication soft
+                              skills.
+                            </p>
+                          </div>
+
+                          <div class="timeline-item">
+                            <div class="circle-dot"></div>
+                            <h3 class="timeline-date">
+                              <i class="fa fa-calendar"></i> 2011 - 2014
+                            </h3>
+                            <h4 class="timeline-title">Master Degree</h4>
+                            <p class="timeline-text">
+                              I chose my master degree in technology. There I
+                              deepened my knowledge, enhanced my skills in the
+                              area and learnt how to increase my career
+                              prospects in a competitive job market.
+                            </p>
+                          </div>
+
+                          <div class="timeline-item">
+                            <div class="circle-dot"></div>
+                            <h3 class="timeline-date">
+                              <i class="fa fa-calendar"></i> 2007 - 2010
+                            </h3>
+                            <h4 class="timeline-title">Bachelor Degree</h4>
+                            <p class="timeline-text">
+                              There I learnt foundational courses and computer
+                              sciences fundamentals. In the institution, I chose
+                              my specialization in web-development that involves
+                              front-end and back-end technologies, user
+                              interface designs and content management systems.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="experience padd-15">
+                    <h3 class="title">Experience</h3>
+                    <div class="row">
+                      <div class="timeline-box padd-15">
+                        <div class="timeline shadow-dark">
+                          <div class="timeline-item">
+                            <div class="circle-dot"></div>
+                            <h3 class="timeline-date">
+                              <i class="fa fa-calendar"></i> 2020 - Today
+                            </h3>
+                            <h4 class="timeline-title">
+                              Senior Front-end Designer
+                            </h4>
+                            <p class="timeline-text">
+                              I can design complex software systems. My
+                              decisions impact scalability, maintainability, and
+                              overall system architecture. Also, I mentor less
+                              experienced team members, helping them grow and
+                              learn.
+                            </p>
+                          </div>
+
+                          <div class="timeline-item">
+                            <div class="circle-dot"></div>
+                            <h3 class="timeline-date">
+                              <i class="fa fa-calendar"></i> 2017 - 2019
+                            </h3>
+                            <h4 class="timeline-title">
+                              Junior Front-end Designer
+                            </h4>
+                            <p class="timeline-text">
+                              I learnt to code in an existing codebase, dive
+                              into the project and understanding its structure.
+                              Also I worked closely with senior software
+                              engineers that guided me, answered my questions
+                              and helped me grow.
+                            </p>
+                          </div>
+
+                          <div class="timeline-item">
+                            <div class="circle-dot"></div>
+                            <h3 class="timeline-date">
+                              <i class="fa fa-calendar"></i> 2014 - 2016
+                            </h3>
+                            <h4 class="timeline-title">Graphic Designer</h4>
+                            <p class="timeline-text">
+                              I can create logos, color schemes and typography
+                              for a brand's identity. Also I develop graphics
+                              for websites, social media and digital ads with
+                              applications that enhance user experience.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="service section" id="services">
+          <div class="container">
+            <div class="row">
+              <div class="section-title padd-15">
+                <h2>Services</h2>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="service-item padd-15">
+                <div class="service-item-inner">
+                  <div class="icon">
+                    <i class="fa fa-mobile-alt"></i>
+                  </div>
+                  <h4>Web Design</h4>
+                  <p>
+                    I offer custom website designs, responsive design to ensure
+                    compatibility across devices, and UI/UX design to enhance
+                    user experience
+                  </p>
+                </div>
+              </div>
+
+              <div class="service-item padd-15">
+                <div class="service-item-inner">
+                  <div class="icon">
+                    <i class="fa fa-laptop-code"></i>
+                  </div>
+                  <h4>Graphic Design</h4>
+                  <p>
+                    I design logos, icons, illustrations, and other visual
+                    assets that enhance the website's branding and aesthetic
+                    appeal
+                  </p>
+                </div>
+              </div>
+
+              <div class="service-item padd-15">
+                <div class="service-item-inner">
+                  <div class="icon">
+                    <i class="fa fa-palette"></i>
+                  </div>
+                  <h4>Digital Marketing</h4>
+                  <p>
+                    I build websites that enhances visual aesthetics, user
+                    experience, SEO, responsive design and mainly conversion
+                    optimization
+                  </p>
+                </div>
+              </div>
+
+              <div class="service-item padd-15">
+                <div class="service-item-inner">
+                  <div class="icon">
+                    <i class="fa fa-code"></i>
+                  </div>
+                  <h4>UI/UX Solutions</h4>
+                  <p>
+                    I offer custom research and design to increase your customer
+                    satisfaction and obtain higher conversion rates
+                  </p>
+                </div>
+              </div>
+
+              <div class="service-item padd-15">
+                <div class="service-item-inner">
+                  <div class="icon">
+                    <i class="fa fa-search"></i>
+                  </div>
+                  <h4>Brand Consultancy</h4>
+                  <p>
+                    I build brands through cultural insights & strategic vision.
+                    Custom crafted business solution
+                  </p>
+                </div>
+              </div>
+
+              <div class="service-item padd-15">
+                <div class="service-item-inner">
+                  <div class="icon">
+                    <i class="fa fa-bullhorn"></i>
+                  </div>
+                  <h4>Photography</h4>
+                  <p>
+                    I make high-quality photos of any category at a professional
+                    level.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="portfolio section" id="portfolio">
+          <div class="container">
+            <div class="row">
+              <div class="section-title padd-15">
+                <h2>Projects</h2>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="portfolio-heading padd-15">
+                <h2>My Last Projects:</h2>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="portfolio-item padd-15">
+                <div class="portfolio-item-inner shadow-dark">
+                  <div class="portfolio-img">
+                    <img
+                      src="https://i.postimg.cc/NGkQB1Y0/portfolio-1.jpg"
+                      alt="portfolio image"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="portfolio-item padd-15">
+                <div class="portfolio-item-inner shadow-dark">
+                  <div class="portfolio-img">
+                    <img
+                      src="https://i.postimg.cc/ydg49Z3w/portfolio-2.jpg"
+                      alt="portfolio image"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="portfolio-item padd-15">
+                <div class="portfolio-item-inner shadow-dark">
+                  <div class="portfolio-img">
+                    <img
+                      src="https://i.postimg.cc/RVPdrbDL/portfolio-3.jpg"
+                      alt="portfolio image"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="portfolio-item padd-15">
+                <div class="portfolio-item-inner shadow-dark">
+                  <div class="portfolio-img">
+                    <img
+                      src="https://i.postimg.cc/25dBY15N/portfolio-4.jpg"
+                      alt="portfolio image"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="portfolio-item padd-15">
+                <div class="portfolio-item-inner shadow-dark">
+                  <div class="portfolio-img">
+                    <img
+                      src="https://i.postimg.cc/RZBHD1ML/portfolio-5.jpg"
+                      alt="portfolio image"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="portfolio-item padd-15">
+                <div class="portfolio-item-inner shadow-dark">
+                  <div class="portfolio-img">
+                    <img
+                      src="https://i.postimg.cc/3wP7t1hK/portfolio-6.jpg"
+                      alt="portfolio image"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="contact section" id="contact">
+          <div class="container">
+            <div class="row">
+              <div class="section-title padd-15">
+                <h2>Contact</h2>
+              </div>
+            </div>
+
+            <h3 class="contact-title padd-15">Any Question? Contact us!</h3>
+            <h4 class="contact-subtitle padd-15">I'm at your service</h4>
+
+            <div class="row">
+              <div class="contact-info-item padd-15">
+                <div class="icon"><i class="fa fa-phone"></i></div>
+                <h4>Call us on</h4>
+                <p>+92 333 054 5218</p>
+              </div>
+
+              <div class="contact-info-item padd-15">
+                <div class="icon"><i class="fa fa-map-marker-alt"></i></div>
+                <h4>Office</h4>
+                <p>São Paulo</p>
+              </div>
+
+              <div class="contact-info-item padd-15">
+                <div class="icon"><i class="fa fa-envelope"></i></div>
+                <h4>Email</h4>
+                <p>info@gmail.com</p>
+              </div>
+
+              <div class="contact-info-item padd-15">
+                <div class="icon"><i class="fa fa-globe"></i></div>
+                <h4>Website</h4>
+                <p>www.domain.com</p>
+              </div>
+            </div>
+            <h3 class="contact-title padd-15">Send me an email</h3>
+            <h4 class="contact-subtitle padd-15">
+              I'll contact you as soon as possible!
+            </h4>
+
+            <div class="row">
+              <div class="contact-form padd-15">
+                <div class="row">
+                  <div class="form-item col-6 padd-15">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Name"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-item col-6 padd-15">
+                    <div class="form-group">
+                      <input
+                        type="email"
+                        class="form-control"
+                        placeholder="Email"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="form-item col-12 padd-15">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Subject"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="form-item col-12 padd-15">
+                    <div class="form-group">
+                      <textarea
+                        name="message"
+                        id="message"
+                        class="form-control"
+                        placeholder="Message"
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="form-item col-12 padd-15">
+                    <div class="form-group">
+                      <button type="submit" class="btn">Send Message</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="style-switcher">
+      <div class="style-switcher-toggler s-icon">
+        <i class="fas fa-cog fa-spin"></i>
+      </div>
+
+      <div class="day-night s-icon">
+        <i class="fas"></i>
+      </div>
+
+      <h4>Theme Colors</h4>
+
+      <div class="colors">
+        <span class="color-1" onclick="setActiveStyle('color-1')"></span>
+        <span class="color-2" onclick="setActiveStyle('color-2')"></span>
+        <span class="color-3" onclick="setActiveStyle('color-3')"></span>
+        <span class="color-4" onclick="setActiveStyle('color-4')"></span>
+        <span class="color-5" onclick="setActiveStyle('color-5')"></span>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+    <script src="app.js"></script>
+
+    <script>
+      /* Toggle Style Switcher */
+
+      const styleSwitcherToggle = document.querySelector(
+        ".style-switcher-toggler"
+      );
+      styleSwitcherToggle.addEventListener("click", () => {
+        document.querySelector(".style-switcher").classList.toggle("open");
+      });
+
+      window.addEventListener("scroll", () => {
+        if (
+          document.querySelector(".style-switcher").classList.contains("open")
+        ) {
+          document.querySelector(".style-switcher").classList.remove("open");
+        }
+      });
+
+      const alternateStyles = document.querySelectorAll(".alternate-style");
+      function setActiveStyle(color) {
+        alternateStyles.forEach((style) => {
+          if (color === style.getAttribute("title")) {
+            style.removeAttribute("disabled");
+          } else {
+            style.setAttribute("disabled", "true");
+          }
+        });
+      }
+
+      /* Dark/Light Mode */
+
+      const dayNight = document.querySelector(".day-night");
+      dayNight.addEventListener("click", () => {
+        dayNight.querySelector("i").classList.toggle("fa-sun");
+        dayNight.querySelector("i").classList.toggle("fa-moon");
+        document.body.classList.toggle("dark");
+      });
+
+      window.addEventListener("load", () => {
+        if (document.body.classList.contains("dark")) {
+          dayNight.querySelector("i").classList.add("fa-sun");
+        } else {
+          dayNight.querySelector("i").classList.add("fa-moon");
+        }
+      });
+
+      /* Typing Animation */
+
+      var typed = new Typed(".typing", {
+        strings: [
+          "",
+          "Web Designer",
+          "Web Developer",
+          "Graphic Designer",
+          "Youtuber",
+        ],
+        typeSpeed: 100,
+        Backspeed: 60,
+        loop: true,
+      });
+
+      /* Changing Aside Active Link */
+
+      const nav = document.querySelector(".nav");
+      const navList = nav.querySelectorAll("li");
+      const totalNavList = navList.length;
+      const allSection = document.querySelectorAll(".section");
+      const totalSection = allSection.length;
+
+      for (let i = 0; i < totalNavList; i++) {
+        const a = navList[i].querySelector("a");
+        a.addEventListener("click", function () {
+          removeBackSection();
+          for (let j = 0; j < totalNavList; j++) {
+            if (navList[j].querySelector("a").classList.contains("active")) {
+              addBackSection(
+                j
+              ); /*allSection[j].classList.add('back-section');*/
+            }
+            navList[j].querySelector("a").classList.remove("active");
+          }
+          this.classList.add("active");
+          showSection(this);
+
+          if (window.innerWidth < 1200) {
+            asideSectionTogglerBtn();
+          }
+        });
+      }
+
+      function addBackSection(num) {
+        allSection[num].classList.add("back-section");
+      }
+
+      function removeBackSection() {
+        for (let i = 0; i < totalSection; i++) {
+          allSection[i].classList.remove("back-section");
+        }
+      }
+
+      function showSection(element) {
+        for (let i = 0; i < totalSection; i++) {
+          allSection[i].classList.remove("active");
+        }
+
+        const target = element.getAttribute("href").split("#")[1];
+        document.querySelector("#" + target).classList.add("active");
+      }
+
+      function updateNav(element) {
+        for (let i = 0; i < totalNavList; i++) {
+          navList[i].querySelector("a").classList.remove("active");
+          const target = element.getAttribute("href").split("#")[1];
+          if (
+            target ===
+            navList[i].querySelector("a").getAttribute("href").split("#")[1]
+          ) {
+            navList[i].querySelector("a").classList.add("active");
+          }
+        }
+      }
+
+      document.querySelector(".hire-me").addEventListener("click", function () {
+        const sectionIndex = this.getAttribute("data-section-index");
+        /*console.log(sectionIndex);*/
+        showSection(this);
+        updateNav(this);
+        removeBackSection();
+        addBackSection(sectionIndex);
+      });
+
+      /* Activating Mobile Menu */
+
+      const navTogglerBtn = document.querySelector(".nav-toggler");
+      const aside = document.querySelector(".aside");
+
+      navTogglerBtn.addEventListener("click", () => {
+        asideSectionTogglerBtn();
+      });
+
+      function asideSectionTogglerBtn() {
+        aside.classList.toggle("open");
+        navTogglerBtn.classList.toggle("open");
+        for (let i = 0; i < totalSection; i++) {
+          allSection[i].classList.toggle("open");
+        }
+      }
+    </script>
+  </body>
+</html>
